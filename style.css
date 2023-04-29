@@ -1,0 +1,69 @@
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url("https://fonts.googleapis.com/css2?family=Inika&family=Inter:wght@400;700&family=Roboto&display=swap");
+}
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+body {
+  margin: auto;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+* {
+  box-sizing: border-box;
+}
+.top {
+  width: 90%;
+  max-width: 920px;
+  height: 40%;
+  margin-top: 2rem;
+  display: flex;
+  align-self: center;
+}
+.input__text {
+    width: 100%;
+    padding: 2rem;
+    font-size: 1.5em
+}
+
+/* KEYBOARD PART */
+.bottom {
+  width: 90%;
+  max-width: 920px;
+  height: 60%;
+  margin-bottom: 2em;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  background: yellow;
+}
+.block {
+    width: 96%;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.6%;
+}
+.keyboard__btn {
+    width: 5.5%;
+    height: 13%;
+    border-radius: 5px;
+    background: #66696c; 
+    border: none;
+    box-shadow: 2px 4px 4px 0px #0f0f0f;;
+}
+.control_keys {
+    background: #393a3b;
+}
+/* .screen {
+  width: 90%;
+  height: 40%;
+  background: blue;
+} */
