@@ -52,15 +52,25 @@ body {
     gap: 0.6%;
 }
 .keyboard__btn {
+    position: relative;
     width: 5.5%;
     height: 13%;
     border-radius: 5px;
     background: #66696c; 
     border: none;
-    box-shadow: 2px 4px 4px 0px #0f0f0f;;
+    box-shadow: 2px 4px 4px 0px #0f0f0f;
+    color: #fff;
+    font-weight: 700;
+    padding: 0%;
 }
 .control_keys {
     background: #393a3b;
+}
+.btn_up {
+    position: absolute;
+    top: 0%;
+    left: 10%;
+    color:aqua;
 }
 /* .screen {
   width: 90%;

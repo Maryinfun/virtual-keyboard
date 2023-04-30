@@ -1,11 +1,13 @@
-// class BtnMarks {
-//   constructor() {
-//     this.engMain = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', '[', ']', '\\', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", '\\', 'z', 'x', 'c', 'v', 'b', 'n', 'm', '.', ',', '/'];
-//     this.engAdd = ['~', '!', '@', '#', '$', '%', ':', '?', '', '(', ')', '_', '+', '/'];
-//     this.ruMain = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'й', 'ц', 'у', 'к', 'е', 'н', 'г', 'ш', 'щ', 'з', 'х', 'ъ', '\\', 'ф', 'ы', 'в', 'а', 'п', 'р', 'о', 'л', 'д', 'ж', 'э', '\\', 'я', 'ч', 'с', 'м', 'и', 'т', 'ь', 'б', 'ю', '/'];
-//     this.ruAdd = ['', '!', '"', '№', ';', '%', '^', '&', '', '(', ')', '_', '+', '/'];
-//   }
-// }
+class BtnMarks {
+  constructor() {
+    this.engMain = ['`', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', '[', ']', '\\', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ';', "'", '\\', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '.', ',', '/'];
+    this.engAbove = ['~', '!', '@', '#', '$', '%', ':', '?', '', '(', ')', '_', '+', '/'];
+    this.ruMain = ['Ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Й', 'Ц', 'У', 'К', 'Е', 'Н', 'Г', 'Ш', 'Щ', 'З', 'Х', 'Ъ', '\\', 'Ф', 'Ы', 'В', 'А', 'П', 'Р', 'О', 'Л', 'Д', 'Ж', 'Э', '\\', 'Я', 'Ч', 'С', 'М', 'И', 'Т', 'Ь', 'Б', 'Ю', '/'];
+    this.ruAbove = ['', '!', '"', '№', ';', '%', '^', '&', '', '(', ')', '_', '+', '/'];
+    this.cntrlBtn = ['Backspace', 'Tab', 'DEL', 'Caps Lock', 'ENTER', 'Shift', 'Ʌ', 'Shift', 'Ctrl', 'Win', 'Alt', '', 'Alt', 'Ctrl', '<', 'V', '>'];
+    this.btnCode = ['Backquote', 'Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0', 'Minus', 'Equal', 'KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight', 'Backslash', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'Semicolon', 'Quote', 'IntlBackslash', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM', 'Period', 'Comma', 'Slash', 'Space'];
+  }
+}
 
 const language = localStorage.getItem('language') || 'en';
 const body = document.querySelector('body');
@@ -19,9 +21,9 @@ sectionText.className = 'top';
 body.appendChild(sectionText);
 screen.className = 'input__text';
 if (language === 'en') {
-  screen.placeholder = 'Press SHIFT + CTRL to change language';
+  screen.placeholder = 'Attention please, the keyboard is created in Windows.\nPress SHIFT + CTRL to change language.';
 } else {
-  screen.placeholder = 'Для смены языка нажмите SHIFT + CTRL';
+  screen.placeholder = 'Внимание, клавиатура создана в Windows.\nДля смены языка нажмите SHIFT + CTRL.';
 }
 sectionText.appendChild(screen);
 
@@ -60,7 +62,7 @@ for (let i = 0; i < 65; i += 1) {
     btn.style = 'width: 13%';
   } else if (i === 14) {
     btn.style = 'width: 8%';
-  } else if (i === 28 || i === 55 || i === 57 || i === 58) {
+  } else if (i === 28 || i === 57 || i === 58) {
     btn.style = 'width: 6.5%';
   } else if (i === 56 || i === 61) {
     btn.style = 'width: 9.5%;';
@@ -68,3 +70,37 @@ for (let i = 0; i < 65; i += 1) {
     btn.style = 'width: 37.5%;';
   }
 }
+
+// BUTTON MARKS
+const item = new BtnMarks();
+const btnSet = Array.from(document.querySelectorAll('.keyboard__btn'));
+const mainBtn = btnSet.filter((key, i) => i < 13 || (i > 14 && i < 28)
+|| (i > 29 && i < 41) || (i > 42 && i < 54));
+const upperBtn = btnSet.filter((key, i) => i < 13 || i === 27);
+const optnlBtn = btnSet.filter((key, i) => i === 13 || i === 14
+|| i === 28 || i === 29 || i === 41 || i === 42 || i >= 54);
+
+function addSign() {
+  mainBtn.forEach((key, i) => {
+    const button = key;
+    if (language === 'en') button.innerText = item.engMain[i];
+    else button.innerText = item.ruMain[i];
+  });
+  upperBtn.forEach((key, i) => {
+    // console.log(1);
+    const button = key;
+    const upperSpace = document.createElement('span');
+    upperSpace.className = 'btn_up';
+    button.appendChild(upperSpace);
+    if (language === 'en') upperSpace.innerText = item.engAbove[i];
+    else upperSpace.innerText = item.ruAbove[i];
+  });
+  optnlBtn.forEach((key, i) => {
+    const button = key;
+    button.innerText = item.cntrlBtn[i];
+  });
+}
+
+addSign();
+
+// console.log(String.fromCharCode(8593, 8594, 8595, 8592), extraButton, item.ruMain.length);
