@@ -2,6 +2,9 @@
   font-family: "Roboto", sans-serif;
   src: url("https://fonts.googleapis.com/css2?family=Inika&family=Inter:wght@400;700&family=Roboto&display=swap");
 }
+.input__text:focus-visible {
+    outline: none;
+}
 html {
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -59,18 +62,24 @@ body {
     background: #66696c; 
     border: none;
     box-shadow: 2px 4px 4px 0px #0f0f0f;
-    color: #fff;
+    color: #ffffff;
     font-weight: 700;
     padding: 0%;
+    transition: .3s;
+}
+.btn-active {
+    background: #589ce0;
+    box-shadow: none;
 }
 .control_keys {
     background: #393a3b;
 }
 .btn_up {
     position: absolute;
+    font-size: 0.7rem;
     top: 0%;
     left: 10%;
-    color:aqua;
+    color:#ffffff;
 }
 /* .screen {
   width: 90%;
